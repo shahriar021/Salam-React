@@ -1,0 +1,25 @@
+{
+  "name": "salamreact",
+  "version": "1.0.0",
+  "description": "this is a paid course",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahriar021/Salam-React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "shahriar chowdhury",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahriar021/Salam-React/issues"
+  },
+  "homepage": "https://github.com/shahriar021/Salam-React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

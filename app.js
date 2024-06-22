@@ -9,6 +9,10 @@ import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import { Footer } from "./src/components/Footer";
+import About from "./src/components/About";
+
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import ErrorPage from "./src/components/ErrorPage";
 
 // const heading = React.createElement("div", { id: "parent" }, [
 //   React.createElement("div", { id: "child" }, [
@@ -240,12 +244,30 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </div>
   );
 };
 
+const route = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
+    errorElement: <ErrorPage />,
+  },
+]);
+
 const rDom = ReactDOM.createRoot(document.getElementById("id"));
 
-rDom.render(<App />);
+rDom.render(<RouterProvider router={route} />);

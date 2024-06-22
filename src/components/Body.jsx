@@ -12,7 +12,7 @@ const Body = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await fetch(`https://fakestoreapi.com/products`);
+        const data = await fetch(url);
         const jsonData = await data.json();
         setFoodList(jsonData);
         setFilteredFoodList(jsonData); // Initialize filtered list with fetched data

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurentContainer from "./RestaurentContainer";
 import { obj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [foodList, setFoodList] = useState([]);
@@ -16,7 +17,7 @@ const Body = () => {
         const jsonData = await data.json();
         setFoodList(jsonData);
         setFilteredFoodList(jsonData); // Initialize filtered list with fetched data
-        console.log(jsonData);
+        //console.log(jsonData);
       } catch (err) {
         console.log(err);
       }
@@ -57,7 +58,9 @@ const Body = () => {
       </div>
       <div className="resContainer">
         {filteredFoodList.map((res, i) => (
-          <RestaurentContainer key={i} item={res} />
+          <Link to={"/resaurant/" + res.id} key={res.id}>
+            <RestaurentContainer item={res} />
+          </Link>
         ))}
       </div>
     </div>

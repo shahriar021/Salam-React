@@ -13,6 +13,8 @@ import About from "./src/components/About";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ErrorPage from "./src/components/ErrorPage";
+import Contact from "./src/components/Contact";
+import ResMenu from "./src/components/ResMenu";
 
 // const heading = React.createElement("div", { id: "parent" }, [
 //   React.createElement("div", { id: "child" }, [
@@ -262,6 +264,14 @@ const route = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/resaurant/:onno",
+        element: <ResMenu />,
       },
     ],
     errorElement: <ErrorPage />,

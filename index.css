@@ -49,10 +49,11 @@
 
 .restaurentCard {
   width: 250px;
-
+  height: 400px;
   background-color: rgb(236, 218, 218);
   border: solid 2 black;
   margin: 10px;
+  overflow: hidden;
 }
 
 .shimmer-container {
@@ -80,4 +81,9 @@ h5 {
 
 .search {
   display: flex;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-around;
 }

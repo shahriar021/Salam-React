@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
-  return <h1>contact</h1>;
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>contact</h1>
+
+      <h3>{count}</h3>
+      <button onClick={() => setCount(count + 1)}>update</button>
+    </div>
+  );
 };
 
 export default Contact;

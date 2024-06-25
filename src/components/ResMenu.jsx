@@ -5,7 +5,7 @@ function ResMenu() {
   const [item, setItem] = useState(null);
 
   const { onno } = useParams();
-  console.log(onno);
+  console.log(useState);
   useEffect(() => {
     getSpecificItem = async () => {
       const data = await fetch("https://fakestoreapi.com/products/" + onno);

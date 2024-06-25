@@ -20,8 +20,10 @@ function ResMenu() {
       <h2>{item?.title}</h2>
       <div className="specItem">
         <img src={item?.image} />
-        <h4>Price:{item?.price}</h4>
-        <h4>rating : {item?.rating?.rate}/5</h4>
+        <div className="specItem2">
+          <h4>Price:{item?.price}</h4>
+          <h4>rating : {item?.rating?.rate}/5</h4>
+        </div>
       </div>
     </div>
   );

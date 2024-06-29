@@ -5,7 +5,9 @@ const About = () => {
   return (
     <div>
       <h1>about me........</h1>
-      <UserClass name={"shahriar"}/>
+      <UserClass name={"1"} />
+      {/* <UserClass name={"2"} />
+      <UserClass name={"3"} /> */}
     </div>
   );
 };

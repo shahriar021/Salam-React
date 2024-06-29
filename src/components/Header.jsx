@@ -24,6 +24,9 @@ const Header = () => {
           <li>
             <a href="/contact">contact</a>
           </li>
+          <li>
+            <a href="/gadget">gadget</a>
+          </li>
           <button
             onClick={() => {
               authButton === "Login"

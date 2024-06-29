@@ -4,7 +4,7 @@
 //   "this is by react from app."
 // );
 
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -15,6 +15,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ErrorPage from "./src/components/ErrorPage";
 import Contact from "./src/components/Contact";
 import ResMenu from "./src/components/ResMenu";
+import Shimmer from "./src/components/Shimmer";
+//import Gadget from "./src/components/Gadget";
 
 // const heading = React.createElement("div", { id: "parent" }, [
 //   React.createElement("div", { id: "child" }, [
@@ -242,6 +244,8 @@ import ResMenu from "./src/components/ResMenu";
 //   </div>
 // );
 
+const Gadget = lazy(() => import("./src/components/Gadget.jsx"));
+
 const App = () => {
   return (
     <div>
@@ -268,6 +272,14 @@ const route = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/gadget",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Gadget />
+          </Suspense>
+        ),
       },
       {
         path: "/resaurant/:onno",

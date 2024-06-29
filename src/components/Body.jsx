@@ -3,12 +3,15 @@ import RestaurentContainer from "./RestaurentContainer";
 import { obj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [foodList, setFoodList] = useState([]);
   const [filteredFoodList, setFilteredFoodList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const url = "https://fakestoreapi.com/products";
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     const getData = async () => {
@@ -27,6 +30,10 @@ const Body = () => {
 
   if (foodList.length === 0) {
     return <Shimmer />;
+  }
+
+  if (onlineStatus === false) {
+    return <h1>you're offline</h1>;
   }
 
   const handleSearch = () => {

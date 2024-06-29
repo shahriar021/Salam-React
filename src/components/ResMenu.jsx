@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { json, useParams } from "react-router-dom";
+import { ItemUrl } from "../utils/constant";
+import useResMenu from "../utils/useResMenu";
 
 function ResMenu() {
-  const [item, setItem] = useState(null);
+  
 
   const { onno } = useParams();
-  console.log(useState);
-  useEffect(() => {
-    getSpecificItem = async () => {
-      const data = await fetch("https://fakestoreapi.com/products/" + onno);
-      const jsonData = await data.json();
-      setItem(jsonData);
-    };
-    getSpecificItem();
-  }, []);
+ 
+  const item = useResMenu(onno)
 
   return (
     <div>

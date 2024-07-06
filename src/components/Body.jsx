@@ -49,21 +49,34 @@ const Body = () => {
   };
 
   return (
-    <div className="mainBody">
-      <div className="search">
-        <button onClick={handleTopRated}> top rated restro</button>
-        <div>
+    <div className=" bg-slate-300">
+      <div className="m-3 p-3 flex justify-between">
+        <button
+          className="mx-3 m-3 bg-slate-900 text-white rounded-lg w-32 hover:bg-red-300 hover:text-black"
+          onClick={handleTopRated}
+        >
+          {" "}
+          top rated cloths
+        </button>
+        <div className="mx-3 m-3 ">
           <input
+            className="rounded-lg"
             type="text"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button onClick={handleSearch}> search</button>
+          <button
+            className="mx-3 m-3 bg-slate-900 text-white rounded-lg w-32 hover:bg-red-300 hover:text-black"
+            onClick={handleSearch}
+          >
+            {" "}
+            search
+          </button>
         </div>
       </div>
-      <div className="resContainer">
+      <div className="flex flex-wrap justify-center ">
         {filteredFoodList.map((res, i) => (
           <Link to={"/resaurant/" + res.id} key={res.id}>
             <RestaurentContainer item={res} />

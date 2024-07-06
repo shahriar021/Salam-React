@@ -5,26 +5,34 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [authButton, setAuthButton] = useState("Login");
+  // custom hook
   const onlineCheck = useOnlineStatus();
   return (
-    <div className="header">
-      <div className="logoContainer">
-        <img className="logo" src={LOGO_URL} alt="image logo" />
-      </div>
-      <div className="nav-item">
-        <ul>
-          <li>Online status : {onlineCheck ? "👍" : "🔴"}</li>
+    <div className="flex justify-between bg-slate-400 shadow-lg ">
+      <Link to="/about">
+        <div className="m-2 p-2 rounded-xl  hover:bg-red-500">
+          <img
+            className="w-10 rounded-lg hover:bg-red-500"
+            src={LOGO_URL}
+            alt="image logo"
+          />
+        </div>
+      </Link>
 
-          <li>
+      <div className="nav-item">
+        <ul className="flex p-4 m-4 items-center justify-between">
+          <li className="px-5">Online status : {onlineCheck ? "👍" : "🔴"}</li>
+
+          <li className="px-5">
             <Link to="/">home</Link>
           </li>
-          <li>
+          <li className="px-5">
             <Link to="/about">about</Link>
           </li>
-          <li>
+          <li className="px-5">
             <a href="/contact">contact</a>
           </li>
-          <li>
+          <li className="px-5">
             <a href="/gadget">gadget</a>
           </li>
           <button

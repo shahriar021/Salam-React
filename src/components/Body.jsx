@@ -49,7 +49,7 @@ const Body = () => {
   };
 
   return (
-    <div className=" bg-slate-300">
+    <div className=" bg-slate-300 m-5 rounded-md">
       <div className="m-3 p-3 flex justify-between">
         <button
           className="mx-3 m-3 bg-slate-900 text-white rounded-lg w-32 hover:bg-red-300 hover:text-black"

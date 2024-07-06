@@ -8,7 +8,7 @@ const Header = () => {
   // custom hook
   const onlineCheck = useOnlineStatus();
   return (
-    <div className="flex justify-between bg-slate-400 shadow-lg ">
+    <div className="flex justify-between bg-slate-400 shadow-lg fixed w-full">
       <Link to="/about">
         <div className="m-2 p-2 rounded-xl  hover:bg-red-500">
           <img

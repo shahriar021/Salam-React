@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import RestaurentContainer from "./RestaurentContainer";
+import RestaurentContainer, {
+  higherOrderPromotedRestaurent,
+} from "./RestaurentContainer";
 import { obj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -12,6 +14,9 @@ const Body = () => {
   const url = "https://fakestoreapi.com/products";
 
   const onlineStatus = useOnlineStatus();
+
+  const ResCardwithPromoted =
+    higherOrderPromotedRestaurent(RestaurentContainer);
 
   useEffect(() => {
     const getData = async () => {
@@ -49,7 +54,7 @@ const Body = () => {
   };
 
   return (
-    <div className=" bg-slate-300 m-5 rounded-md">
+    <div className=" bg-slate-300 m-5 rounded-md mt-15">
       <div className="m-3 p-3 flex justify-between">
         <button
           className="mx-3 m-3 bg-slate-900 text-white rounded-lg w-32 hover:bg-red-300 hover:text-black"
@@ -79,7 +84,11 @@ const Body = () => {
       <div className="flex flex-wrap justify-center ">
         {filteredFoodList.map((res, i) => (
           <Link to={"/resaurant/" + res.id} key={res.id}>
-            <RestaurentContainer item={res} />
+            {res.rating.rate > 4.5 ? (
+              <ResCardwithPromoted item={res} />
+            ) : (
+              <RestaurentContainer item={res} />
+            )}
           </Link>
         ))}
       </div>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import ecom from "../asset/ecom.png";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+
 
 const Header = () => {
   const [authButton, setAuthButton] = useState("Login");
@@ -13,7 +15,7 @@ const Header = () => {
         <div className="m-2 p-2 rounded-xl  hover:bg-red-500">
           <img
             className="w-10 rounded-lg hover:bg-red-500"
-            src={LOGO_URL}
+            src={ecom}
             alt="image logo"
           />
         </div>

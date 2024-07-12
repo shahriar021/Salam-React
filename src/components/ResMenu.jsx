@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { json, useParams } from "react-router-dom";
 import { ItemUrl } from "../utils/constant";
-import useResMenu from "../utils/useResMenu";
+import useResMenu from "../hooks/useResMenu";
 
 function ResMenu() {
   const { onno } = useParams();

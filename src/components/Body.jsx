@@ -5,7 +5,8 @@ import RestaurentContainer, {
 import { obj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+
 
 const Body = () => {
   const [foodList, setFoodList] = useState([]);

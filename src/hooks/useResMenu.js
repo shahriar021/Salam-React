@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ItemUrl } from "./constant";
+import { ItemUrl } from "../utils/constant";
 
 const useResMenu = (onno) => {
   const [item, setItem] = useState(null);

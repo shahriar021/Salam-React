@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import ecom from "../asset/ecom.png";
 import useOnlineStatus from "../hooks/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [authButton, setAuthButton] = useState("Login");
   // custom hook
   const onlineCheck = useOnlineStatus();
+  const {loggedInUser} = useContext(UserContext);
   return (
     <div className="flex justify-between bg-slate-400 shadow-lg  w-full">
       <Link to="/about">
@@ -37,6 +38,9 @@ const Header = () => {
           <li className="px-5">
             <a href="/gadget">gadget</a>
           </li>
+          <li className="px-5">
+            <a href="/cart">cart</a>
+          </li>
           <button
             onClick={() => {
               authButton === "Login"
@@ -46,6 +50,7 @@ const Header = () => {
           >
             {authButton}
           </button>
+          <h5>{loggedInUser}</h5>
         </ul>
       </div>
     </div>

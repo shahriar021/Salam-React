@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import RestaurentContainer, {
   higherOrderPromotedRestaurent,
 } from "./RestaurentContainer";
@@ -6,9 +6,11 @@ import { obj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
+  const { loggedInUser, setUserInfo } = useContext(UserContext);
+
   const [foodList, setFoodList] = useState([]);
   const [filteredFoodList, setFilteredFoodList] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -64,10 +66,15 @@ const Body = () => {
           {" "}
           top rated cloths
         </button>
+
+        <input
+          value={loggedInUser}
+          onChange={(e) => setUserInfo(e.target.value)}
+        />
         <div className="mx-3 m-3 ">
           <input
             className="rounded-lg"
-            type="text"
+            type="text"   
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);

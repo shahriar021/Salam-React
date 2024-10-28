@@ -4,7 +4,7 @@
 //   "this is by react from app."
 // );
 
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -16,6 +16,8 @@ import ErrorPage from "./src/components/ErrorPage";
 import Contact from "./src/components/Contact";
 import ResMenu from "./src/components/ResMenu";
 import Shimmer from "./src/components/Shimmer";
+import UserContext from "./src/utils/UserContext.js";
+import Cart from "./src/components/Cart.jsx";
 //import Gadget from "./src/components/Gadget";
 
 // const heading = React.createElement("div", { id: "parent" }, [
@@ -246,13 +248,25 @@ import Shimmer from "./src/components/Shimmer";
 
 const Gadget = lazy(() => import("./src/components/Gadget.jsx"));
 
+
+
 const App = () => {
+  const[userInfo, setUserInfo] = useState("");
+
+  useEffect(() => {
+    const data = {
+      name: " s c ",
+    };
+    setUserInfo(data.name);
+  }, []);
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+      <div>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -272,6 +286,10 @@ const route = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/gadget",

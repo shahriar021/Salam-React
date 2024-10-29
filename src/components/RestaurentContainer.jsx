@@ -25,7 +25,7 @@ const RestaurentContainer = ({ item }) => {
 
 export const higherOrderPromotedRestaurent = (RestaurentContainer) => {
   return (item) => {
-    console.log(item, "item");
+    // console.log(item, "item");
     return (
       <>
         <label className="absolute text-white bg-black m-2 p-2 rounded-lg">

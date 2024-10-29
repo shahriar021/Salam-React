@@ -18,6 +18,8 @@ import ResMenu from "./src/components/ResMenu";
 import Shimmer from "./src/components/Shimmer";
 import UserContext from "./src/utils/UserContext.js";
 import Cart from "./src/components/Cart.jsx";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore.js";
 //import Gadget from "./src/components/Gadget";
 
 // const heading = React.createElement("div", { id: "parent" }, [
@@ -248,10 +250,8 @@ import Cart from "./src/components/Cart.jsx";
 
 const Gadget = lazy(() => import("./src/components/Gadget.jsx"));
 
-
-
 const App = () => {
-  const[userInfo, setUserInfo] = useState("");
+  const [userInfo, setUserInfo] = useState("");
 
   useEffect(() => {
     const data = {
@@ -260,13 +260,15 @@ const App = () => {
     setUserInfo(data.name);
   }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
-      <div>
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+        <div>
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 import ecom from "../asset/ecom.png";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [authButton, setAuthButton] = useState("Login");
   // custom hook
   const onlineCheck = useOnlineStatus();
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
+
+  //selecter is hook
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
-    <div className="flex justify-between bg-slate-400 shadow-lg  w-full">
+    <div className="flex justify-between bg-slate-400 shadow-lg  w-full ">
       <Link to="/about">
         <div className="m-2 p-2 rounded-xl  hover:bg-red-500">
           <img
@@ -39,7 +44,7 @@ const Header = () => {
             <a href="/gadget">gadget</a>
           </li>
           <li className="px-5">
-            <a href="/cart">cart</a>
+            <Link to="/cart">cart ({cartItems.length} items)</Link>
           </li>
           <button
             onClick={() => {

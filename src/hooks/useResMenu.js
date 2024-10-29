@@ -8,7 +8,7 @@ const useResMenu = (onno) => {
       const data = await fetch(ItemUrl + onno);
       const jsonData = await data.json();
       setItem(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     };
     getSpecifitItem();
   }, []);
